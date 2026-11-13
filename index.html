@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dictionary — English Word Meanings</title>
+  <meta name="description" content="Search any English word and get clear meanings, example sentences, synonyms, and pronunciation audio." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,600&family=Karla:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header container">
+    <div class="brand">
+      <span class="brand-icon">📖</span>
+      <span class="brand-name">Word</span>
+    </div>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <main class="container">
+    <!-- Hero + Search -->
+    <section class="hero">
+      <p class="eyebrow">English Dictionary</p>
+      <h1>Look up any English word</h1>
+      <p class="subtitle">Meaning, example sentences, synonyms, pronunciation audio — all in one place, free.</p>
+
+      <form id="searchForm" class="search-box">
+        <span class="search-icon">🔍</span>
+        <input id="searchInput" type="text" placeholder="Type a word… e.g. happy" autocomplete="off" autofocus />
+        <button type="button" id="clearBtn" class="clear-btn hidden" aria-label="Clear">✕</button>
+        <button type="submit" id="searchBtn" class="search-btn">Search</button>
+      </form>
+
+      <!-- Recent searches -->
+      <div id="recent" class="recent hidden"></div>
+    </section>
+
+    <!-- Error message -->
+    <div id="error" class="error hidden"></div>
+
+    <!-- Loading skeleton -->
+    <div id="loading" class="card skeleton hidden">
+      <div class="sk sk-title"></div>
+      <div class="sk sk-sub"></div>
+      <div class="sk sk-line"></div>
+      <div class="sk sk-line short"></div>
+      <div class="sk sk-line shorter"></div>
+    </div>
+
+    <!-- Result card -->
+    <article id="result" class="card hidden"></article>
+
+    <!-- Word of the day -->
+    <section id="wotd" class="card hidden"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

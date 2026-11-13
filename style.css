@@ -1,0 +1,199 @@
+/* ===== Colors (light mode) ===== */
+:root {
+  --bg: #f6f2e8;
+  --card: #fbf9f3;
+  --text: #3a2c1f;
+  --muted: #7a6a58;
+  --primary: #a8532a;
+  --primary-text: #fbf7ef;
+  --secondary: #ece5d6;
+  --accent: #eedcbc;
+  --border: #e0d7c4;
+  --error-bg: #f8e1dc;
+  --error-border: #e8b4a8;
+  --radius: 16px;
+}
+
+/* ===== Colors (dark mode) ===== */
+body.dark {
+  --bg: #2a211a;
+  --card: #342920;
+  --text: #f0ebe0;
+  --muted: #b3a48f;
+  --primary: #d9915e;
+  --primary-text: #2b1f15;
+  --secondary: #40342a;
+  --accent: #4a3c2f;
+  --border: #54463a;
+  --error-bg: #4a2a24;
+  --error-border: #7a3e33;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Karla", system-ui, sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(120, 90, 60, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 20px; }
+main { flex: 1; padding-bottom: 80px; }
+.hidden { display: none !important; }
+
+h1, h2, .brand-name, .pos, .wotd-word {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+/* ===== Header ===== */
+.header { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; padding-bottom: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  background: var(--primary); border-radius: 12px; font-size: 18px;
+}
+.brand-name { font-size: 20px; font-weight: 600; }
+
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--card); cursor: pointer; font-size: 16px;
+}
+.icon-btn:hover { background: var(--accent); }
+
+/* ===== Hero ===== */
+.hero { text-align: center; padding: 56px 0 32px; }
+.eyebrow { color: var(--primary); font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+.hero h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 600; margin-top: 12px; letter-spacing: -0.02em; }
+.subtitle { color: var(--muted); max-width: 440px; margin: 12px auto 0; line-height: 1.5; }
+
+/* ===== Search box ===== */
+.search-box {
+  display: flex; align-items: center; gap: 8px; max-width: 580px; margin: 32px auto 0;
+  background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.search-box:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(168, 83, 42, 0.15); }
+.search-icon { margin-left: 8px; opacity: 0.6; }
+.search-box input {
+  flex: 1; border: none; outline: none; background: transparent; color: var(--text);
+  font-size: 16px; font-family: inherit; padding: 8px 0;
+}
+.search-box input::placeholder { color: var(--muted); }
+.clear-btn {
+  width: 32px; height: 32px; border: none; background: transparent; color: var(--muted);
+  border-radius: 8px; cursor: pointer;
+}
+.clear-btn:hover { background: var(--accent); }
+.search-btn {
+  background: var(--primary); color: var(--primary-text); border: none; border-radius: 12px;
+  padding: 10px 20px; font-weight: 700; font-size: 14px; font-family: inherit; cursor: pointer;
+}
+.search-btn:hover { opacity: 0.9; }
+.search-btn:disabled { opacity: 0.5; cursor: wait; }
+
+/* ===== Recent searches & chips ===== */
+.recent { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; max-width: 580px; margin: 24px auto 0; }
+.chip {
+  border: 1px solid var(--border); background: var(--card); color: var(--text);
+  border-radius: 999px; padding: 6px 14px; font-size: 14px; font-family: inherit; cursor: pointer;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); }
+.chip.syn { background: var(--accent); border-color: transparent; font-weight: 500; }
+.chip.syn:hover { background: var(--primary); color: var(--primary-text); }
+
+/* ===== Error ===== */
+.error {
+  max-width: 580px; margin: 0 auto; padding: 20px; text-align: center; font-size: 14px;
+  background: var(--error-bg); border: 1px solid var(--error-border); border-radius: var(--radius);
+}
+
+/* ===== Card ===== */
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+  padding: 32px; margin-top: 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.word-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+.word-head h2 { font-size: clamp(36px, 6vw, 48px); font-weight: 600; letter-spacing: -0.02em; }
+.phonetic { color: var(--muted); font-size: 18px; margin-top: 4px; }
+.audio-btn {
+  width: 48px; height: 48px; border-radius: 50%; border: none; background: var(--primary);
+  color: var(--primary-text); font-size: 20px; cursor: pointer; transition: transform 0.15s;
+}
+.audio-btn:hover { transform: scale(1.06); }
+
+.meaning { margin-top: 32px; }
+.meaning-title { display: flex; align-items: center; gap: 12px; }
+.pos { color: var(--primary); font-style: italic; font-weight: 600; font-size: 18px; }
+.line { flex: 1; height: 1px; background: var(--border); }
+
+.defs { list-style: none; margin-top: 16px; }
+.defs li { display: flex; gap: 12px; margin-bottom: 16px; }
+.num {
+  width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: var(--secondary);
+  font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.def { line-height: 1.6; }
+.example { color: var(--muted); font-style: italic; font-size: 14px; margin-top: 6px; }
+
+.section-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.synonyms { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 24px; }
+.synonyms .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+.source { display: inline-block; margin-top: 24px; font-size: 14px; color: var(--muted); }
+.source:hover { color: var(--primary); }
+
+/* ===== Tamil meaning box ===== */
+.tamil-box {
+  margin-top: 32px; padding: 20px; border-radius: var(--radius);
+  background: var(--accent); border: 1px solid var(--border);
+}
+.tamil-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.tamil-label { color: var(--primary); }
+.tamil-btn {
+  border: none; border-radius: 12px; padding: 9px 16px; font: inherit; font-weight: 600; font-size: 14px;
+  background: var(--primary); color: var(--primary-text); cursor: pointer; transition: opacity 0.15s;
+}
+.tamil-btn:hover { opacity: 0.9; }
+.tamil-btn:disabled { opacity: 0.6; cursor: wait; }
+.tamil-hint { margin-top: 10px; font-size: 14px; color: var(--muted); }
+.tamil-output { margin-top: 8px; }
+.tamil-row { margin-top: 14px; }
+.tamil-row dt { font-family: "Karla", "Noto Sans Tamil", sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); }
+.tamil-text { font-family: "Noto Sans Tamil", sans-serif; font-size: 17px; line-height: 1.7; margin-top: 2px; }
+.tamil-en { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 2px; }
+
+/* ===== Word of the day ===== */
+.wotd-label { color: var(--primary); }
+.wotd-word {
+  display: block; margin-top: 12px; font-size: 30px; font-weight: 600; background: none; border: none;
+  color: var(--text); cursor: pointer; text-align: left;
+}
+.wotd-word:hover { color: var(--primary); }
+.wotd-def { margin-top: 12px; color: var(--muted); line-height: 1.6; }
+.wotd-def em { color: var(--text); font-weight: 500; }
+
+/* ===== Loading skeleton ===== */
+.skeleton { animation: pulse 1.4s ease-in-out infinite; }
+.sk { background: var(--secondary); border-radius: 8px; }
+.sk-title { height: 40px; width: 190px; }
+.sk-sub { height: 20px; width: 130px; margin-top: 12px; }
+.sk-line { height: 16px; width: 100%; margin-top: 14px; }
+.sk-sub + .sk-line { margin-top: 32px; }
+.sk-line.short { width: 83%; }
+.sk-line.shorter { width: 66%; }
+@keyframes pulse { 50% { opacity: 0.5; } }
+
+/* ===== Footer ===== */
+.footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* ===== Mobile ===== */
+@media (max-width: 520px) {
+  .card { padding: 22px; }
+  .search-btn { padding: 10px 14px; }
+}
